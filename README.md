@@ -22,7 +22,9 @@ Atualmente o package.json esta configurado no script de dev para rodar com bun c
   e ficará ouvindo as modificações no projeto em tempo real.
 
 - Após uniciar o projeto utilize o arquivo de insomnia na raiz do projeto para lançar suas requisições ao servidor e aproveite
-
+- o PHP My Admin ja esta incluso no projeto, pode ser localizado em `http://localhost:3307/`, </br>
+  utilize o valor de `MARIADB_USER` e `MARIADB_PASSWORD` no .env para acessar
+  
 ## Possiveis erros
 
 - Verifique se executou todos os comandos mencionados acima
@@ -33,3 +35,4 @@ Atualmente o package.json esta configurado no script de dev para rodar com bun c
 
 ![Insomnia cadastro](.example/insomnia-cadastro.png)
 ![Servidor Rodando](.example/servidor-rodando.png)
+![PHP My Admin](.example/phpmyadmin.png)
