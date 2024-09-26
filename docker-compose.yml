@@ -1,0 +1,43 @@
+services:
+  db-mariadb:
+    image: mariadb
+    container_name: "db-mariadb"
+    ports:
+      - "${MARIADB_PORT:-3306}:3306"
+    restart: always
+    volumes:
+      - "./db-mariadb/data:/var/lib/mysql/data/"
+      - "./db-mariadb/logs:/var/lib/mysql/logs/"
+    environment:
+      ALLOW_EMPTY_PASSWORD: ${ALLOW_EMPTY_PASSWORD:-yes}
+      MARIADB_DATABASE: ${MARIADB_DATABASE:-prisma}
+      MARIADB_PORT_NUMBER: ${MARIADB_PORT:-3306}
+      MARIADB_ROOT_USER: ${MARIADB_ROOT_USER:-root}
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD:-12345678}
+      MARIADB_USER: ${MARIADB_USER:-guest}
+      MARIADB_PASSWORD: ${MARIADB_PASSWORD:-guest}
+    networks:
+      - network-default
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin
+    restart: always
+    links:
+      - db-mariadb
+    depends_on:
+      - db-mariadb
+    ports:
+      - "${PHPMYADMIN_PORT:-3307}:80"
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=db-mariadb
+    networks:
+      - network-default
+      
+networks:
+  network-default:
+    driver: bridge
+
+volumes:
+  db-mariadb:

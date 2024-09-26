@@ -1,0 +1,7 @@
+node_modules/
+.env
+db-mariadb/
+dist/
+bun.lockb
+package-lock.json
+yarn-lock
