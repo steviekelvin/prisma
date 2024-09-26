@@ -28,3 +28,8 @@ Atualmente o package.json esta configurado no script de dev para rodar com bun c
 - Verifique se executou todos os comandos mencionados acima
 - Caso seja mencionado erro de migração de dados verifique se seu banco esta rodando e corretamente apontado.
 - Verifique se tem permissão de escrita na pasta node_modules - [ Erro ocorrido em desenvolvimento deste projeto ]
+
+## Demonstrações do projeto
+
+![Insomnia cadastro](.example/insomnia-cadastro.png)
+![Servidor Rodando](.example/servidor-rodando.png)
